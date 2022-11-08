@@ -5,7 +5,7 @@ import DisplayMessage from './component/DisplayMessage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="h-screen overflow-hidden">
         <ButtonModal />
         <DisplayMessage />
     </div>

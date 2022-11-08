@@ -1,7 +1,7 @@
 const DisplayMessage = () => {
     return ( 
         <>
-            <div className="flex justify-center items-center h-full w-full">
+            <div className="h-full flex justify-center items-center bg-red-600">
                 <h1>DisplayMessage</h1>
             </div>
         </>
