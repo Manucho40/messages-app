@@ -16,7 +16,7 @@ const ModalWindow = () => {
     return ( 
         <>
             <div>
-                <Button className='m-10' type="default" onClick={() => setOpen(true)}>
+                <Button className='m-5' type="default" onClick={() => setOpen(true)}>
                     New Message
                 </Button>
             </div>
