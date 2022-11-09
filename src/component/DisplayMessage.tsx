@@ -1,8 +1,9 @@
 const DisplayMessage = () => {
     return ( 
         <>
-            <div className="h-full flex justify-center items-center bg-red-600">
-                <h1>DisplayMessage</h1>
+            <div className="flex bg-red-700 h-40 flex-col justify-center items-center ">
+                <h1 className="text-4xl">TEXT DU JOUR</h1>
+                <p>fgfgf</p>
             </div>
         </>
      );
