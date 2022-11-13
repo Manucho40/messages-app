@@ -1,11 +1,11 @@
 
 export type Attributes = {
-    auteur: "Inconnu",
-    texte: "Et si la vie etait comme ca",
+    auteur: string,
+    texte: string,
 }
 
 
 export interface Message{
-    id: 3,
+    id: number,
     attributes: Attributes
 }
