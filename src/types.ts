@@ -1,5 +1,5 @@
 
-export type Attributes = {
+export interface Attributes {
     auteur: string,
     texte: string,
 }

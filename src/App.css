@@ -1,8 +1,20 @@
 @import '~antd/dist/antd.css';
-
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;1,200&family=Rubik+Iso&display=swap');
 .button_new_message{
   display: inline;
   padding: 5px;
   border: 1px solid;
   background-color: aqua;
+}
+
+.message{
+  /* font-family: 'Jost', sans-serif; */
+font-family: 'Rubik Iso', cursive;
+/* text-shadow: 8px -4px 6px #000;
+color: floralwhite; */
+}
+
+.titre{
+  /* text-shadow: 8px -4px 6px #000; */
+
 }
