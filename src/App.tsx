@@ -24,7 +24,7 @@ useEffect(() => {
 
 })
   return (
-    <div className="h-screen overflow-hidden ">
+    <div className="h-screen overflow-hidden">
         <ModalWindow />
         <DisplayMessage  />
     </div>

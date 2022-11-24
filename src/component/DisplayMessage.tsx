@@ -1,10 +1,6 @@
 import axios from "axios";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Message } from "../types";
-
-type Props = {
-    message: Message
-}
 
 
 const DisplayMessage= () => {
@@ -18,7 +14,7 @@ const DisplayMessage= () => {
     useEffect(() => {
         const API: string | undefined = process.env.REACT_APP_REMOTE_API_URL;
           if(API){
-            const response  = axios.get(API).then(
+              axios.get(API).then(
               (res) => setMessage(res.data)
               
             );

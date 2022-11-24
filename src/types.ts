@@ -5,7 +5,11 @@ export interface Attributes {
 }
 
 
+export interface dataType {
+    "data": Message
+}
+
 export interface Message{
-    id: number,
+    id?: number,
     attributes: Attributes
 }

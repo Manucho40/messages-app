@@ -1,40 +1,59 @@
 import { Button, Form, Input, Modal } from 'antd';
 import axios from 'axios';
 import { useState } from 'react';
-import { Attributes } from '../types';
+import {dataType} from '../types';
 
 
 const ModalWindow = () => {
     const [open, setOpen] = useState(false);
-    const [newMessage, setNewMessage] = useState<Attributes>({
-      auteur: "",
-      texte: ""
+    const [newMessage, setNewMessage] = useState<dataType>({
+      data: {
+        attributes: {
+          auteur: "",
+          texte: ""
+        }
+      }
     })
     const [form] = Form.useForm();
 
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.persist();
-        const name = event.target.name;
+        // const name = event.target.name;
         setNewMessage((newMessage) => ({
-          ...newMessage,
-            [name]: event.target.value,
+          data: {
+            attributes: {
+              auteur: event.target.value,
+              texte: event.target.value
+            }
+          }
         }));
     }
-    const onFinish = (newMessage: Attributes) => {
+
+
+    
+    const onFinish = () => {
       const API: string | undefined = process.env.REACT_APP_REMOTE_API_URL;
+      const data = JSON.stringify(newMessage);
       if(API){
-       axios.post(API, newMessage);
-       
+        axios.post(API, data);
+        console.log(data)
       }else{
         console.log("Vide")
       }
       onReset()
       setOpen(false)
       };
-    
+
       const onReset= () => {
-        setNewMessage({auteur: "", texte: ""});
+        setNewMessage({
+          data: {
+            attributes: {
+              auteur: "",
+              texte: ""
+            }
+          }
+        });
         form.resetFields();
       };
 
@@ -65,15 +84,15 @@ const ModalWindow = () => {
       form={form}
     >
       <Form.Item
-        label="Username"
-        name="username"
+        label="Auteur"
+        name="auteur"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input name="auteur" value={newMessage.auteur} onChange={handleInput}/>
+        <Input name="auteur" value={newMessage.data.attributes.auteur} onChange={handleInput}/>
       </Form.Item>
 
-      <Form.Item name={['user', 'Message']} label="Message" rules={[{ required: true, message: 'Please input your username!' }]}>
-        <Input name="texte" value={newMessage.texte} onChange={handleInput}/>
+      <Form.Item label="Message" name="texte" rules={[{ required: true, message: 'Please input your username!' }]}>
+        <Input name="texte" value={newMessage.data.attributes.texte} onChange={handleInput}/>
       </Form.Item>
       <Form.Item wrapperCol={{ offset: 5, span: 16 }}>
         <Button type="primary" htmlType="submit">
